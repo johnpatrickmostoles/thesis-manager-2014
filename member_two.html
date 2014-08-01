@@ -1,0 +1,110 @@
+<html>
+<head>
+	<title>MEMBER TWO</title>
+</head>
+<body align= "middle">
+	<div style="text-align: center"> 
+
+        <a href="/module/three" style="text-decoration: none"> 
+         <b>Return to the Home Page</b></span></a>
+        </div>
+
+	<font face = "garamond extra bold"><h1>Melvin Al James Medel</h1>
+	<img src = "https://z-n.ak.fbcdn.net/sphotos-b.ak/hphotos-ak-xap1/t1.0-9/q71/s720x720/10352408_694520790594777_7071981908288526528_n.jpg" width = 250px length = 250px border = 2 bgcolor= #A8A8A8 /> 
+
+	<body background= "white">
+<center>
+<table border=1>
+	
+	<tr>
+	<td align= "center">
+	<font face = "Garamond extra bold"><h2>Tagline:</h2>
+	<font face = "monotype corsiva"><p>"If you haven't failed then you haven't tried anything new"</p>
+	<tr>
+	</td>
+
+	
+
+	<tr>
+	<td align= "center">
+	<font face = "Garamond extra bold"><h2>About me:</h2>
+	<font face = "garamond"><p>My name is Melvin Al James Medel and Alvin is my nickname.</p>
+	<p>I am a 5th year Computer Engineering student studying in the Polytechnic University of the Philippines.</p>	
+	</tr>
+	</td>
+
+	
+
+	<tr>
+	<td align= "center">
+	<font face = "Monotype Corsiva extra bold"><h2>Contact Details:</h2>
+	<font face = "garamond"><p>Phone: 09358426994</p>
+	<font face = "garamond"><p>Email: 013alvinmedel@gmail.com</p>	
+	</tr>
+	</td>
+
+	
+</table>
+</center>
+
+	<h2>Social Networking Links:</h2>
+	<tr style="border-radius:8px;">
+      		<td align="middle" bgcolor=#C1C1C1 style = "border: 2px solid #272822; border-radius: 8px; opacity:0.8;">
+      			
+
+      			<a href="https://www.facebook.com/nhickz013"><img src = "http://t2.gstatic.com/images?q=tbn:ANd9GcQYuCbsmPLvmpWObmvCFxckWSM7itG2h80chjRXuelSGTIIXvIl" width=50px height=50px/ border= 2></a>
+
+      			<a href="https://github.com/meow0013"><img src = "http://t0.gstatic.com/images?q=tbn:ANd9GcSr6kxazAmpMxrg-6nfx_3RKJYwq-_KnMoDKDjWM6pLqhROKbNU" width=50px height=50px/ border= 2></a>
+
+				<a href="http://www.codecademy.com/majmedel"><img src = "http://t1.gstatic.com/images?q=tbn:ANd9GcT-0g1jD4APyyq5g043myaiUocIzg9OjYxWzBmbfFjoT3Nr35YLdg" width=50px height=50px/ border= 2></a>
+
+				<a href="https://plus.google.com/u/0/111864553267979735471/posts"><img src = "http://t0.gstatic.com/images?q=tbn:ANd9GcSO6HiuRZaUbzEaAW7bfQE8gRaSXJpz7LRt1VIB1zRP4WmrxA_D" width=50px height=50px/ border= 2></a>
+
+				<a href="http://www.codecademy.com/majmedel"><img src="http://brutalgamer.com/wp-content/uploads/2013/09/Steam-Logo.png" width=50px height=50px/ border= 2></a>
+
+
+      		</td>
+      	</tr>
+
+
+<center>
+<table>	
+	
+		<tr><td >
+
+    {% for greeting in greetings %}
+      {% if greeting.author %}
+        <b>{{ greeting.author.nickname() }}</b> wrote:
+      {% else %}
+       An anonymous person wrote:
+      {% endif %}
+      <blockquote>{{ greeting.content }}</blockquote>
+    {% endfor %}
+
+    <form action="/module-1/2?guestbook_name={{ guestbook_name }}" method="post">
+      <div><textarea name="content" rows="3" cols="60"></textarea></div>
+      <div><input type="submit" value="Write your comment below"
+            style="padding: 10px 10px 10px;
+              font-size: 15px;
+              font-style: Garamond;
+              background-color: #808080;
+              color: #080808;
+              border-radius: 8px;"></div>
+        </form>
+    <hr>
+
+    <form>Guestbook name:
+      <input value="{{ guestbook_name }}" name="guestbook_name">
+      <input type="submit" value="switch">
+    </form>
+
+    <a color= #FE8196 href="{{ url|safe }}">{{ url_linktext }}</a>
+   
+
+   	</tr></td>
+</table>
+</center>
+
+
+</body>
+</html>

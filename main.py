@@ -69,13 +69,48 @@ class ThesisSuccessHandler(webapp2.RequestHandler):
 
 class ModuleThreeMainPage(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
+        if user:
+            url = users.create_logout_url(self.request.uri)
+            url_linktext = 'Logout'
+            name = 'Logged in as '+user.nickname()
+        else:
+            url = users.create_login_url(self.request.uri)
+            url_linktext = 'Login'
+            name = ''
+        template_values = {
+        'name': name,
+        'url': url,
+        'url_linktext': url_linktext
+        }
         template = JINJA_ENVIRONMENT.get_template('module_three.html')
-        self.response.write(template.render())
+        self.response.write(template.render(template_values))
 
 class AdviserNewHandler(webapp2.RequestHandler):
     def get(self):
-        template = JINJA_ENVIRONMENT.get_template('adviser_new.html')
-        self.response.write(template.render())
+        user = users.get_current_user()
+        if user:
+            url = users.create_logout_url(self.request.uri)
+            url_linktext = 'Logout'
+            name = 'Logged in as '+user.nickname()
+            template_values = {
+            'name': name,
+            'url': url,
+            'url_linktext': url_linktext
+            }
+            template = JINJA_ENVIRONMENT.get_template('adviser_new.html')
+            self.response.write(template.render(template_values))
+        else:
+            url = users.create_login_url(self.request.uri)
+            url_linktext = 'Login'
+            name = ''
+            template_values = {
+            'name': name,
+            'url': url,
+            'url_linktext': url_linktext
+            }
+            template = JINJA_ENVIRONMENT.get_template('sample.html')
+            self.response.write(template.render(template_values))
 
     def post(self):
         adviser = Adviser()
@@ -171,8 +206,29 @@ class ThesisListHandler(webapp2.RequestHandler):
 
 class thesisNewHandler(webapp2.RequestHandler):
     def get(self):
-        template = JINJA_ENVIRONMENT.get_template('thesis_new.html')
-        self.response.write(template.render())
+        user = users.get_current_user()
+        if user:
+            url = users.create_logout_url(self.request.uri)
+            url_linktext = 'Logout'
+            name = 'Logged in as '+user.nickname()
+            template_values = {
+            'name': name,
+            'url': url,
+            'url_linktext': url_linktext
+            }
+            template = JINJA_ENVIRONMENT.get_template('thesis_new.html')
+            self.response.write(template.render(template_values))
+        else:
+            url = users.create_login_url(self.request.uri)
+            url_linktext = 'Login'
+            name = ''
+            template_values = {
+            'name': name,
+            'url': url,
+            'url_linktext': url_linktext
+            }
+            template = JINJA_ENVIRONMENT.get_template('sample.html')
+            self.response.write(template.render(template_values))
 
     
 
@@ -220,9 +276,29 @@ class Student(ndb.Model):
 
 class StudentNewHandler(webapp2.RequestHandler):
     def get(self):
-
-        template = JINJA_ENVIRONMENT.get_template('student_new.html')
-        self.response.write(template.render())
+        user = users.get_current_user()
+        if user:
+            url = users.create_logout_url(self.request.uri)
+            url_linktext = 'Logout'
+            name = 'Logged in as '+user.nickname()
+            template_values = {
+            'name': name,
+            'url': url,
+            'url_linktext': url_linktext
+            }
+            template = JINJA_ENVIRONMENT.get_template('student_new.html')
+            self.response.write(template.render(template_values))
+        else:
+            url = users.create_login_url(self.request.uri)
+            url_linktext = 'Login'
+            name = ''
+            template_values = {
+            'name': name,
+            'url': url,
+            'url_linktext': url_linktext
+            }
+            template = JINJA_ENVIRONMENT.get_template('sample.html')
+            self.response.write(template.render(template_values))
 
 class StudentNewSuccess(webapp2.RequestHandler):
 
